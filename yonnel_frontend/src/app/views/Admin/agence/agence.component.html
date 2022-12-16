@@ -1,0 +1,44 @@
+<app-sideheader></app-sideheader>
+<div class="app app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+            <h1 class="app-page-title"></h1>
+            <div class="row gy-4">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header text-white bg-success">Infos Agence</div>
+                        <div class="card-body">
+                            <form [formGroup]="agenceForm" (ngSubmit)="onSubmitAgence()">
+                                <div class="form-group mb-3">
+                                    <input formControlName="nom" type="text" class="form-control" placeholder="Nom">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input formControlName="balance" type="number" class="form-control"
+                                        placeholder="Balance">
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">Statut</div>
+                                    <div class="col-5">
+                                        <div class="form-group mb-3">
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label" for="inlineRadio1">Actif</label>
+                                                <input formControlName="statut" class="form-check-input" type="radio" value="actif">
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label" for="inlineRadio2">Inactif</label>
+                                                <input formControlName="statut" class="form-check-input" type="radio" value="inactif">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary mb-3">Enregistrer</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

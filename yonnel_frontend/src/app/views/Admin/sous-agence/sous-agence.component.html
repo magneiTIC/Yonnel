@@ -1,0 +1,45 @@
+<app-sideheader></app-sideheader>
+<div class="app app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+            <h1 class="app-page-title"></h1>
+            <div class="row gy-4">
+                <div class="col-5">
+                    <div class="card">
+                        <div class="card-header">Infos Sous agence</div>
+                        <div class="card-body">
+                            <form [formGroup]="sousAgenceForm" (ngSubmit)="onSubmitSousAgence()">
+                                <div class="form-group mb-3">
+                                    <input formControlName="nom" type="text" class="form-control" 
+                                        placeholder="Nom">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input formControlName="adresse" type="text" class="form-control" 
+                                        placeholder="Adresse">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input formControlName="ville" type="text" class="form-control" 
+                                        placeholder="Ville">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <select formControlName="AgenceId" id="AgenceID" class="form-control">
+                                        <option value="" selected>Choisir une agence...</option>
+                                        <option *ngFor="let agence of agences" [value]="agence.id">
+                                            {{ agence.nom }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <select formControlName="pays"  class="form-control">
+                                        <option value="" selected>Choisir un pays...</option>
+                                        <option *ngFor="let pays of Ppays" [value]="pays.id">
+                                            {{ pays.nom }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary mb-3">Enregistrer</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>

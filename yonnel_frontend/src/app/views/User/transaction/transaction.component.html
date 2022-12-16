@@ -1,0 +1,45 @@
+<app-fixed></app-fixed>
+<div class="app app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+            <h1 class="app-page-title">Effectuer une transaction</h1>
+            <div class="row gy-4">
+                <div class="col-12 col-lg-6">
+                    <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+                        <div class="form-floating mb-3">
+                            <input formControlName="date" type="date" class="form-control" id="floatingInput" placeholder="Date Paiement">
+                            <label for="floatingInput">Date </label>
+                        </div>
+                        <div class="form-group col-12 mb-3">
+                            <input formControlName="telEmetteur" type="number" class="form-control" id="tel1" placeholder="Téléphone de l'émetteur">
+                        </div>
+                        <div class="form-group col-12 mb-3">
+                            <input  formControlName="telRecepteur" type="number" class="form-control" id="tel2" placeholder="Téléphone du récepteur">
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6 mb-3">
+                                <select  formControlName="paysDest"  id="paysOri" class="form-control">
+                                    <option value="" selected>Pays d'origine </option>                                  
+                                <option *ngFor="let pa of pays" [value]="pa.nom"> {{ pa.nom}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-6 mb-3">
+                                <select  formControlName="paysOri"  id="paysOri" class="form-control">
+                                    <option value="" selected>Pays destination </option>                                  
+                                <option *ngFor="let pa of pays" [value]="pa.nom"> {{ pa.nom}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-12 mb-3">
+                            <label for="montantRec">Montant á recevoir</label>
+                            <input formControlName="montantRec" type="number" class="form-control" id="montantEnv">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                    <!--//form-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

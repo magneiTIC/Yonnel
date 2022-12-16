@@ -1,0 +1,44 @@
+<app-fixed></app-fixed>
+<div class="app app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+            <h1 class="app-page-title">Informations du client</h1>
+            <div class="row gy-4">
+                <div class="col-12 col-lg-6">
+                    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group mb-3">
+                                    <input formControlName="prenom" type="text" class="form-control" id="prenomClient" placeholder="Prénom">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group mb-3">
+                                    <input  formControlName="nom" type="text" class="form-control" id="nomClient" placeholder="Nom">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input formControlName="email" type="email" class="form-control" id="emailClient" placeholder="Email">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input formControlName="tel" type="text" class="form-control" id="telClient" placeholder="Téléphone">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input formControlName="dateNaiss" type="date" class="form-control" id="datenaiss" placeholder="Date de naissance">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input formControlName="lieuNaiss" type="text" class="form-control" id="lieunaiss" placeholder="Lieu de naissance">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </form>
+                    <!--//form-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
