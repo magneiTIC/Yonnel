@@ -13,7 +13,6 @@ export class SousAgenceService {
   url='http://localhost:3000/sousAgence/'
 
 
-
   createSousAgence(AgenceId:number,nom: string,pays: string,adresse:string,ville:string,){
     console.log(AgenceId,nom,pays,adresse,ville)
     return this.httpClient
@@ -34,6 +33,16 @@ export class SousAgenceService {
   getAllSousAgence(){
     return this.httpClient
       .get<any>(this.url+'')
+      .pipe(
+        map((userData: any )=>{
+         return userData
+        })
+ 
+       )
+  }
+  getSousAgenceByid(id:number){
+    return this.httpClient
+      .get<any>(this.url+'/:'+id)
       .pipe(
         map((userData: any )=>{
          return userData

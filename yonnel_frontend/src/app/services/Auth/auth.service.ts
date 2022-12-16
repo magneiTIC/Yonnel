@@ -34,13 +34,14 @@ export class AuthService {
      .pipe(
        map((userData: any )=>{
         const token=userData.token as string;
-        const tokenInfo = this.decodeToken(token) ;
-        
-        console.log(tokenInfo.status)
+        const idSousAgence=userData.user.SousAgenceId
+        const tokenInfo = this.decodeToken(token) ;     
+        console.log(idSousAgence)
         sessionStorage.setItem('token', tokenInfo)
         sessionStorage.setItem('login', tokenInfo.login)
         sessionStorage.setItem('id', tokenInfo.id)
         sessionStorage.setItem('status', tokenInfo.status)
+        sessionStorage.setItem('idSousAgence',idSousAgence)
         return userData
 
        }),
@@ -68,7 +69,7 @@ export class AuthService {
     sessionStorage.removeItem('status');
     sessionStorage.removeItem('id');
     sessionStorage.removeItem('token');
-
+    sessionStorage.removeItem('idSousAgence');
   }
 
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs/operators';
 import { Devise } from 'src/app/model/Devise';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class TransactionService {
   }
 
   constructor(
+    private router: Router,
     private httpClient: HttpClient
   ) { }
   url = 'http://localhost:3000/transaction'
@@ -73,33 +75,35 @@ export class TransactionService {
   }
   UpdateTransaction(
     id: number,
-    deviseOri: Devise,
-    deviseDest: Devise,
-    statut: string,
-    frais: number,
-    montantRec: number,
-    ClientEmetteur: any,
-    clientRecepteur: any,
-    paiement: any,
-    userEmetteur: any,
+    // telEmetteur: number, 
+    // telRecepteur: number, 
+    // userEmetteur: string,
+    // paysDest: string, 
+    // paysOri: string, 
+    // frais: number,
+    // montantRec: number,
+    // date: Date, 
+    // statut: string, 
     ) {
     return this.httpClient
-      .put<any>(this.url + '/:' + id, {
-        deviseOri,
-        deviseDest,
-        statut,
-        frais,
-        montantRec,
-        ClientEmetteur,
-        clientRecepteur,
-        paiement,
-        userEmetteur,
+      .put<any>(this.url + '/' + id, {
+        // "tel1": telEmetteur,
+        // "tel2": telRecepteur,
+        // "login": userEmetteur,
+        // "pays2": paysDest,
+        // "pays1": paysOri, 
+        // "frais": frais,
+        // "montantRec": montantRec, 
+        // "date": date,
+        "statut": "payable",
       })
-      .pipe(
-        map((userData: any) => {
-          return userData
-        })
-      )
+      // .pipe(
+      //   map((userData: any) => {
+      //     console.log(id)
+      //    return this.router.navigate(['/liste-transaction'])
+      //   })
+      // )
+      
   }
 
 

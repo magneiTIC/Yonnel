@@ -14,10 +14,29 @@ export class AgenceService {
   url='http://localhost:3000/agence/'
 
 
-
   createAgence(nom: string,statut: string,balance:number){
     return this.httpClient
      .post<any>(this.url,{"nom":nom,"statut":statut,"balance":balance})
+     .pipe(
+      map((userData: any )=>{
+       return userData
+      })
+
+     )
+  }
+  ajoutBalance(id:number,balance:number){
+    return this.httpClient
+     .put<any>(this.url+'/'+id,{"balance":balance})
+     .pipe(
+      map((userData: any )=>{
+       return userData
+      })
+
+     )
+  }
+ diminutionBalance(id:number,balance:number){
+    return this.httpClient
+     .put<any>(this.url+'/'+id,{"balance":balance})
      .pipe(
       map((userData: any )=>{
        return userData
@@ -46,15 +65,5 @@ export class AgenceService {
  
        )
   }
-  UpdateAgence(id:number,code:number,nom: string,statut: string){
-    return this.httpClient
-     .put<any>(this.url+'/:'+id,{code,nom,statut})
-     .pipe(
-      map((userData: any )=>{
-       return userData
-      })
-
-     )
-  }
-
+  
 }

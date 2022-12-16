@@ -74,12 +74,12 @@ module.exports = {
     },
 
     async updateTransaction(req, res) {
-        await Transaction.update(req.body, { where: { id: req.body.id } })
+        await Transaction.update(req.body, { where: { id: req.params.id } })
             .then(transaction => {
-                res.status(200).json(transaction)
+                res.status(200).json(transaction)})
                     .catch(error => { res.status(500).send(error) })
-            })
-    },
+            }
+    ,
 
     async deleteTransaction(req, res) {
         await Transaction.destroy(req.body, { where: { id: req.body.id } }).then(() => {
