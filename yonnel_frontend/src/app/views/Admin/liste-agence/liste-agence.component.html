@@ -4,22 +4,26 @@
         <div class="app-content pt-3 p-md-3 p-lg-4">
             <div class="container-xl">
                 <div class="row g-3 mb-4 align-items-center justify-content-between"></div>
-                <h2 class="mb-3">Liste des agences</h2>
-                <div class="app-card app-card-orders-table shadow-sm mb-5">
-                    <table class="table table-bordered app-table-hover">
+                <h2 class="mb-3">Liste des sous agences</h2>
+                <div class="tab-content" id="orders-table-tab-content">
+                    <div class="tab-pane fade show active" id="orders-all" role="tabpanel"
+                        aria-labelledby="orders-all-tab">
+                        <div class="app-card app-card-orders-table shadow-sm mb-5">
+                            <div class="app-card-body">
+                                <div class="table-responsive">
+                                    <table class="table app-table-hover mb-0 text-left">
                         <thead>
                             <tr>
-                                <th scope="col">NOM</th>
-                                <th scope="col">BALANCE</th>
-                                <th scope="col">STATUT</th>
-                                <th></th>
+                                <th class="cell">NOM</th>
+                                <th class="cell">BALANCE</th>
+                                <th class="cell">STATUT</th>
                             </tr>
                         </thead>
                         <tbody *ngFor="let agence of agences">
                             <tr>
-                                <td> {{agence.nom }}</td>
-                                <td> {{agence.balance}}</td>
-                                <td> {{agence.statut}}</td>
+                                <td class="cell"> {{agence.nom }}</td>
+                                <td class="cell"> {{agence.balance}}</td>
+                                <td class="cell"> {{agence.statut}}</td>
                             </tr>                            
                         </tbody>
                     </table>

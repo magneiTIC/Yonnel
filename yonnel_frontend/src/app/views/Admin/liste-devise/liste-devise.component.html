@@ -14,17 +14,17 @@
                                     <table class="table app-table-hover mb-0 text-left">
                         <thead>
                             <tr>
-                                <th scope="col">NOM</th>
-                                <th scope="col">CODEISO</th>
-                                <th scope="col">SYMBOLE</th>
+                                <th class="cell">NOM</th>
+                                <th class="cell">CODEISO</th>
+                                <th class="cell">SYMBOLE</th>
                             </tr>
                         </thead>
                         
                         <tbody *ngFor="let devise of devises">
                             <tr>
-                                <td> {{devise.nom}}</td>
-                                <td> {{devise.codeISO3 }}</td>
-                                <td> {{devise.symbole}}</td>
+                                <td class="cell"> {{devise.nom}}</td>
+                                <td class="cell"> {{devise.codeISO3 }}</td>
+                                <td class="cell"> {{devise.symbole}}</td>
                             </tr>                            
                         </tbody>
                     </table>
