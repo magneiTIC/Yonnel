@@ -43,7 +43,7 @@ export class SignInComponent implements OnInit {
             this.router.navigate(['/admin/dashboard'])
           }
           else{
-            this.router.navigate(['/transaction'])
+            this.router.navigate(['/dashboard']);
 
           }
         }

@@ -3,33 +3,39 @@
     <div class="app-content pt-3 p-md-3 p-lg-4">
         <div class="container-xl ">
             <h1 class="app-page-title">Effectuer un paiement</h1>
-            <form [formGroup]="paiementForm" (ngSubmit)="onSubmitPaiement()" >
-            <div class="row gy-4">
-                <div class="col-4">
-                    <div class="form-floating mb-3">
-                        <input formControlName="date" type="date" class="form-control" id="floatingInput" placeholder="Date Paiement">
-                        <label for="floatingInput">Date Paiement</label>
+            <form [formGroup]="paiementForm" (ngSubmit)="onSubmitPaiement()">
+                <div class="row gy-4">
+                    <div class="col-4">
+                        <div class="form-floating mb-3">
+                            <input formControlName="date" type="date" class="form-control" id="floatingInput"
+                                placeholder="Date Paiement">
+                            <label for="floatingInput">Date Paiement</label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row gy-4">
-                <div class="col-4">
-                    <div class="form-floating mb-3">
-                        <input formControlName="numPiece" type="text" class="form-control" id="floatingPassword" placeholder="Numéro pièce">
-                        <label for="floatingPassword">Numéro pièce</label>
+                <div class="row gy-4">
+                    <div class="col-4">
+                        <div class="form-floating mb-3">
+                            <input formControlName="numPiece" type="text" class="form-control" id="floatingPassword"
+                                placeholder="Numéro pièce">
+                            <label for="floatingPassword">Numéro pièce</label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row gy-4 mb-3">
-                <div class="col-4">
-                    <select formControlName="typePiece" class="form-select" aria-label="Default select example">
-                        <option selected>Type de pièce</option>
-                        <option value="CNI">CNI</option>
-                        <option value="permis">Permis</option>
-                        <option value="passport">Passport</option>
-                    </select>
+                <div class="row gy-4 mb-3">
+                    <div class="col-4">
+                        <select formControlName="typePiece" class="form-select" aria-label="Default select example">
+                            <option selected>Type de pièce</option>
+                            <option value="CNI">CNI</option>
+                            <option value="permis">Permis</option>
+                            <option value="passport">Passport</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <button type="submit" class="btn btn-primary mb-3">Enregistrer</button>
-        </form>
-            <app-footer></app-footer>
+                <button type="submit" class="btn btn-primary mb-3">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+    <!-- <app-footer></app-footer> -->
+
+</div>

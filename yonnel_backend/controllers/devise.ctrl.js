@@ -20,14 +20,13 @@ module.exports = {
     },
 
     async getAllDevise(req, res) {
-        const total = await Devise.count()
         Devise.findAll({
             include:[{
                 all: true,nested: true
             }]
         })
             .then(devise => {
-                res.status(200).json({devise,total});
+                res.status(200).json(devise);
             })
             .catch(error => {
                 res.status(500).json(error)
@@ -41,4 +40,10 @@ module.exports = {
             })
             .catch(error => { res.status(500).send(error) })
     },
+
+    async countAll(req,res){
+        const total = await Devise.count()
+        res.status(200).json(total)
+        
+    }
 }

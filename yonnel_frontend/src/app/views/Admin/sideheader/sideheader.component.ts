@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/Auth/auth.service';
   styleUrls: ['./sideheader.component.css']
 })
 export class SideheaderComponent implements OnInit {
+User: any;
 
   constructor(
     private router:Router,

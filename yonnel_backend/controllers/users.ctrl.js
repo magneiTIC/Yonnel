@@ -65,10 +65,9 @@ module.exports = {
     },
 
     async getAllUsers(req, res) {
-        const total = await User.count()
         await User.findAll()
             .then(user => {
-                res.status(200).json({user,total})
+                res.status(200).json(user)
             })
             .catch(error => {
                 res.status(500).send(error.message)
@@ -84,5 +83,10 @@ module.exports = {
 
     },
 
+    async countAll(req,res){
+        const total = await User.count()
+        res.status(200).json(total)
+        
+    }
 }
 
