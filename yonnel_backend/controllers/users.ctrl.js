@@ -65,9 +65,10 @@ module.exports = {
     },
 
     async getAllUsers(req, res) {
+        const total = await User.count()
         await User.findAll()
             .then(user => {
-                res.status(200).json(user)
+                res.status(200).json({user,total})
             })
             .catch(error => {
                 res.status(500).send(error.message)
@@ -83,12 +84,5 @@ module.exports = {
 
     },
 
-    // async deleteUser(req, res) {
-    //     await User.destroy(req.body, { where: { id: req.params.id } })
-    //     .then(() => {
-    //         res.status(200).json({ status: 'success', message: 'user supprimé' })
-    //     })
-    //     .catch(err => { res.status(500).send({ status: 'error', message: err }) })
-    // }
 }
 

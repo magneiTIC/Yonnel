@@ -6,17 +6,7 @@ const Pays = require('../models').Pays;
 
 
 module.exports = {
-    // async createTransaction(req, res) {
-    //     Transaction.create(req.body)
-    //         .then(transaction => {
-    //             res.status(200).json({ transaction })
-    //         })
-    //         .catch(error => {
-    //             res.status(500).json(error)
-    //         })
-    // },
-
-
+    
     async createTransaction(req, res) {
 
         const telEmetteur = req.body.tel1;

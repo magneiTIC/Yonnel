@@ -18,6 +18,7 @@ import { SousAgenceComponent } from './views/Admin/sous-agence/sous-agence.compo
 import { PaysComponent } from './views/Admin/pays/pays.component';
 import { AuthGuard } from './services/Guard/auth.guard';
 import { DashboardComponent } from './views/Admin/dashboard/dashboard.component';
+import { UserboardComponent } from './views/User/userboard/userboard.component';
 
 const routes: Routes = [
   {path:'fixed', component:FixedComponent},
@@ -117,6 +118,8 @@ const routes: Routes = [
   data:{title:'Liste agence',expectedStatus:'admin'},
   canActivate:[AuthGuard]
   },
+
+  {path:'dashboard',component:UserboardComponent},
 
   {path:'', redirectTo:'signIn',pathMatch: 'full'}
 

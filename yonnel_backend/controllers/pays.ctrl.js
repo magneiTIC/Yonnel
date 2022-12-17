@@ -20,14 +20,15 @@ module.exports = {
         }
     },
 
-    getAllPays(req, res) {
+    async getAllPays(req, res) {
+        const total = await Pays.count()
         Pays.findAll({
             include:[{
                 all: true,nested: true
             }]
         })
             .then(pays => {
-                res.status(200).json(pays);
+                res.status(200).json({pays,total});
             })
             .catch(error => {
                 res.status(500).json(error)

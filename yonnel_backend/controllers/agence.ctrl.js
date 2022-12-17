@@ -27,14 +27,16 @@ module.exports = {
         }
     },
 
-    getAllAgences(req, res) {
+    async getAllAgences(req, res) {
+        const total = await Agence.count()
         Agence.findAll({
-            include:[{
-                all: true,nested: true
+            include: [{
+                all: true, nested: true
             }]
         })
             .then(agence => {
-                res.status(200).json(agence);
+                console.log(total)
+                res.status(200).json({agence,total});
             })
             .catch(error => {
                 res.status(500).json(error)
@@ -48,5 +50,7 @@ module.exports = {
             })
             .catch(error => { res.status(500).send(error) })
     },
+
+    
 
 }

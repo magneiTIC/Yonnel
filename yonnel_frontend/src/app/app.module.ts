@@ -28,6 +28,7 @@ import { ListeUserComponent } from './views/Admin/liste-user/liste-user.componen
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './views/Admin/dashboard/dashboard.component';
 import { SideheaderComponent } from './views/Admin/sideheader/sideheader.component';
+import { UserboardComponent } from './views/User/userboard/userboard.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { SideheaderComponent } from './views/Admin/sideheader/sideheader.compone
     ListeUserComponent,
     DashboardComponent,
     SideheaderComponent,
+    UserboardComponent,
   ],
   imports: [
     BrowserModule,

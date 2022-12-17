@@ -20,13 +20,14 @@ module.exports = {
     },
 
     async getAllClients(req, res) {
+        const total = await Client.count()
         await Client.findAll({
             include:[{
                 all: true,nested: true
             }]
         })
             .then(client => {
-                res.status(200).json(client)
+                res.status(200).json({client,total})
             })
             .catch(error => {
                 res.status(500).send(error)
