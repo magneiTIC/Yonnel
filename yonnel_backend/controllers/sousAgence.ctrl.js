@@ -1,4 +1,6 @@
 const sousAgence = require('../models').SousAgence;
+const agence = require('../models').Agence;
+
 
 module.exports = {
     async createSousAgence(req, res) {
@@ -22,11 +24,20 @@ module.exports = {
     },
 
     async getSousAgenceById(req, res) {
-        const sousAgence = await sousAgence.findByPk(req.params.id)
-        if (!sousAgence) {
+        const sousAgences = await sousAgence.findOne(
+       
+           { where: {id:req.params.id},
+            include:[{
+            
+                model: agence
+                // all:true,nested: true
+            }]
+        }
+            )
+        if (!sousAgences) {
             return res.status(404).send('sous agence not found')
         } else {
-            res.status(200).json(sousAgence)
+            res.status(200).json(sousAgences)
         }
 
     },

@@ -73,6 +73,13 @@ export class TransactionService {
 
       )
   }
+  UpdateTransaction1(id: number){
+    return this.httpClient
+      .put<any>(this.url + '/' + id,
+       { "statut": "paid",}
+       )
+  }
+  
   UpdateTransaction(
     id: number,
     // telEmetteur: number, 

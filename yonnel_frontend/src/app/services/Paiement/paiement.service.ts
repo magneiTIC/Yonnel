@@ -16,8 +16,10 @@ export class PaiementService {
     console.log(date,TransactionId)
     return this.httpClient
      .post<any>(this.url,{
-      "date":date,"numPiece":numPiece,
-      "typePiece":typePiece,"TransactionId":TransactionId
+      "date":date,
+      "numPiece":numPiece,
+      "typePiece":typePiece,
+      "TransactionId":TransactionId
     })
      .pipe(
       map((userData: any )=>{

@@ -24,26 +24,16 @@ export class AgenceService {
 
      )
   }
-  ajoutBalance(id:number,balance:number){
+  envoie(id:number,balance:number){
+    console.log(balance)
     return this.httpClient
-     .put<any>(this.url+'/'+id,{"balance":balance})
-     .pipe(
-      map((userData: any )=>{
-       return userData
-      })
-
-     )
+     .put<any>(this.url+id,{"balance":balance})
   }
- diminutionBalance(id:number,balance:number){
-    return this.httpClient
-     .put<any>(this.url+'/'+id,{"balance":balance})
-     .pipe(
-      map((userData: any )=>{
-       return userData
-      })
-
-     )
-  }
+ retrait(id:number,balance:number){
+  console.log(balance)
+  return this.httpClient
+   .put<any>(this.url+id,{"balance":balance})
+}
 
   getAllAgence(){
     return this.httpClient

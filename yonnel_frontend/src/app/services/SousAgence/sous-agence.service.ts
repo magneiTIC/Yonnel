@@ -42,7 +42,7 @@ export class SousAgenceService {
   }
   getSousAgenceByid(id:number){
     return this.httpClient
-      .get<any>(this.url+'/:'+id)
+      .get<any>(this.url+id)
       .pipe(
         map((userData: any )=>{
          return userData

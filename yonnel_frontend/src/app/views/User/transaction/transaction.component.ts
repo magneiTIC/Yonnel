@@ -19,6 +19,7 @@ export class TransactionComponent implements OnInit {
   userEmetteur: any
   statut!: any;
   login!: any
+
   idTransaction!:any
   idAgence!:any
   idSousAgence!: any
@@ -28,17 +29,23 @@ export class TransactionComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private transactionService: TransactionService,
+    private PaysService: PaysService,
+
     private sousAgenceService:SousAgenceService,
     private agenceService: AgenceService,
-    private PaysService: PaysService,
   ) { }
 
   ngOnInit(): void {
     this.userEmetteur=sessionStorage.getItem("login");
-    this.idSousAgence=sessionStorage.getItem("idSousAgence");
+
+    let idSousAgence1=sessionStorage.getItem("idSousAgence");
+    if (idSousAgence1){
+      this.idSousAgence=parseInt(idSousAgence1)
+    }
+    console.log(this.idSousAgence)
     this.statut='transmitted'
-    this.idAgence=this.sousAgenceService.getSousAgenceByid(this.idSousAgence).subscribe(data => {
-      this.idAgence = data.IdAgence;
+    this.sousAgenceService.getSousAgenceByid(this.idSousAgence).subscribe(data => {
+      this.idAgence = data.AgenceId;
       console.log(this.idAgence)
     })
     this.PaysService.getAllPays().subscribe(data => {
@@ -90,10 +97,24 @@ export class TransactionComponent implements OnInit {
         result => {
           console.log(result)
 
-          this.agenceService.ajoutBalance(this.idAgence,this.balance)
-
+        let balance1= sessionStorage.getItem('balance')
+        if(balance1)
+        this.balance=parseInt(balance1)+this.balance
+        console.log(this.balance)
+        console.log(this.idAgence)
+        
+          this.agenceService.envoie(this.idAgence,this.balance).subscribe
+           (
+            data =>{console.log(data)
+              sessionStorage.removeItem('balance')
+              sessionStorage.setItem('balance',this.balance)
+            },
+            error =>{console.log(error)}
+           )
+          
           this.idTransaction=result.transaction.id
           console.log(this.idTransaction)
+          
           setTimeout(()=>{
             this.transactionService.UpdateTransaction(this.idTransaction).subscribe(
               result =>{

@@ -64,6 +64,8 @@ module.exports = {
     },
 
     async updateTransaction(req, res) {
+        const envoie = req.body.balance
+        balance=
         await Transaction.update(req.body, { where: { id: req.params.id } })
             .then(transaction => {
                 res.status(200).json(transaction)})
