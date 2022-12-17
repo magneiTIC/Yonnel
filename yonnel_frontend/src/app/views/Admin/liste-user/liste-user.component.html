@@ -20,18 +20,14 @@
                            
                                 <th class="cell">LOGIN</th>
                                 <th class="cell">PASSWORD</th>
-                                <th class="cell">STATUT</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                               
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            
-                        </tbody>
+                       <tbody *ngFor="let user of users">
+                        <tr>
+                            <td class="cell"> {{user.login}}</td>
+                            <td class="cell"> {{user.SousAgence.nom}}</td>
+                        </tr>                            
+                    </tbody>
                     </table>
                 </div>
             </div>

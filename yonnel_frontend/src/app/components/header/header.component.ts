@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 [x: string]: any;
-
+login=sessionStorage.getItem('login')
   constructor() { }
 
   ngOnInit(): void {

@@ -43,7 +43,6 @@ module.exports = {
     },
 
     async getAllSousAgences(req, res) {
-        const total = await sousAgence.count()
         sousAgence.findAll(
             {
                 include:[{
@@ -52,7 +51,7 @@ module.exports = {
             }
         )
             .then(sousAgence => {
-                res.status(200).json({sousAgence,total});
+                res.status(200).json(sousAgence);
             })
             .catch(error => {
                 res.status(500).json(error)
@@ -67,5 +66,12 @@ module.exports = {
             .catch(error => { res.status(500).send(error) })
 
     },
+
+    async countAll(req,res){
+        const total = await SousAgence.count()
+        res.status(200).json(total)
+        
+    }
+    
 
 }

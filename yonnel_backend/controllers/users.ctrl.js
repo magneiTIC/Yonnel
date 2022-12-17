@@ -65,7 +65,11 @@ module.exports = {
     },
 
     async getAllUsers(req, res) {
-        await User.findAll()
+        await User.findAll({
+            include: [{
+                all: true, nested: true
+            }]
+        })
             .then(user => {
                 res.status(200).json(user)
             })

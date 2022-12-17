@@ -14,8 +14,12 @@
             </div>
             <div class="form-group mb-3">
               <select class="form-select" aria-label="Default select example">
-                <option selected>Sélectionner</option>
-                <option value="1">Sonatel</option>
+                <!-- <option  *ngFor=" let sousAgence user of sousAgence">Sélectionner</option>
+                <option value="1">Sonatel</option> -->
+                <option value="" selected>Choisir un Sous agence...</option>
+                <option *ngFor="let sousAgence of sousAgences" [value]="sousAgence.id">
+                    {{ sousAgence.nom }}
+                </option>
               </select>
             </div>
             <div class="row">
