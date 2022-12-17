@@ -43,6 +43,10 @@ module.exports = {
     },
 
     async getAllSousAgences(req, res) {
+<<<<<<< Updated upstream
+=======
+      
+>>>>>>> Stashed changes
         sousAgence.findAll(
             {
                 include:[{
@@ -68,10 +72,9 @@ module.exports = {
     },
 
     async countAll(req,res){
-        const total = await SousAgence.count()
+        const total = await Agence.count()
         res.status(200).json(total)
         
     }
-    
 
 }
